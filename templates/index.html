@@ -1,0 +1,36 @@
+<html lang="en">
+
+<head>
+    <title> BASE </title>    
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />  
+</head>
+
+<body>
+    
+    <div id="head">
+    <center>
+    <h1>Potato Disease Predictor</h1>
+    </div>
+
+   	</center>
+        <form action = "prediction" method = "POST" enctype="multipart/form-data"><!-- if we click submit btn it will redirect to the @prediction in the app.py -->
+             <input type="file" name="img" accept="image*" id = "file" onchange="loadFile(event)">
+             <img id="output"/>
+             <button  type="submit" class="btn btn-primary btn-block btn-large">Predict</button><br>
+             <label> prediction is: {{data}} </label>
+              
+        </form>  
+      
+    
+     
+        
+</body>
+
+<script>
+var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+</script>    
+
+</html>
